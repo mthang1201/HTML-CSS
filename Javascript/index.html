@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+        function calculateSalaries() 
+        {
+            var salary = parseInt(document.getElementById("salary").value);
+            var tax;
+            if (salary >= 15)
+                tax = 0.3;
+            else if (salary >= 7)
+                tax = 0.2;
+            else
+                tax = 0.1;
+            salary = salary - salary * tax;
+            var result = "Tax: " + (salary * tax) + "<br>" + "NET Salary: " + salary;
+            document.getElementById("result").innerHTML = result;
+        }
+
+        function lunarYear()
+        {
+            var year = parseInt(document.getElementById("lunarYear").value);
+            var can = (year - 3) % 10;
+            var chi = (year - 3) % 12;
+            switch (can) {
+                case 0:
+                    can = "Quý";
+                    break;
+                case 1:
+                    can = "Giáp";
+                    break;
+                case 2:
+                    can = "Ất";
+                    break;
+                case 3:
+                    can = "Bính";
+                    break;
+                case 4:
+                    can = "Đinh";
+                    break;
+                case 5:
+                    can = "Mậu";
+                    break;
+                case 6:
+                    can = "Kỷ";
+                    break;
+                case 7:
+                    can = "Canh";
+                    break;
+                case 8:
+                    can = "Tân";
+                    break;
+                case 9:
+                    can = "Nhâm";
+                    break;
+            }
+            switch (chi) {
+                case 0:
+                    chi = "Hợi";
+                    break;
+                case 1:
+                    chi = "Tý";
+                    break;
+                case 2:
+                    chi = "Sửu";
+                    break;
+                case 3:
+                    chi = "Dần";
+                    break;
+                case 4:
+                    chi = "Mão";
+                    break;
+                case 5:
+                    chi = "Thìn";
+                    break;
+                case 6:
+                    chi = "Tỵ";
+                    break;
+                case 7:
+                    chi = "Ngọ";
+                    break;
+                case 8:
+                    chi = "Mùi";
+                    break;
+                case 9:
+                    chi = "Thân";
+                    break;
+                case 10:
+                    chi = "Dậu";
+                    break;
+                case 11:
+                    chi = "Tuất";
+                    break;
+            }
+            var result2 = can + " " + chi;
+            document.getElementById("result2").innerHTML = result2;
+        }
+
+        function daysInMonth()
+        {
+            var day;
+            var month = parseInt(document.getElementById("month").value);
+            var year = parseInt(document.getElementById("year").value);
+            if (month == 2) {
+                if (year % 4 == 0) day = 29;
+                else day = 28;
+            }
+            else if (month == 4 || month == 6 || month == 9 || month == 11)
+                day = 30;
+            else day = 31;
+            var result3 = "Thang " + month + " nam " + year + " co " + day + " ngay.";
+            document.getElementById("result3").innerHTML = result3;
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Hello World!</h2>
+    <h3>Calculate salaries</h3>
+    <label for="number">Enter a number: </label>
+    <input type="number" id="salary">
+    <button onclick="calculateSalaries()">Check</button>
+    <p id="result"></p>
+    
+    <h3>Calculate lunar year</h3>
+    <label for="number">Enter a number: </label>
+    <input type="number" id="lunarYear">
+    <button onclick="lunarYear()">Check</button>
+    <p id="result2"></p>
+
+    <h3>Calculate number of days in a month</h3>
+    <form></form>
+    <label for="number">Enter month/year: </label>
+    <input type="number" id="month">
+    <span>/</span>
+    <input type="number" id="year">
+    <button onclick="daysInMonth()">Check</button>
+    <p id="result3"></p>
+</body>
+
+</html>
